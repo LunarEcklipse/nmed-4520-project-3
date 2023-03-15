@@ -1,2 +1,4 @@
 # nmed-4520-project-3
 A web project for Responsive Web Design.
+
+As someone who enjoys programming langauges, I decided to assemble a sort of catalogue of these languages. More specifically, I decided to assemble a catalogue of "Hello World" programs. A Hello World program is one that displays a short, simple message and is often used to verify if a compiler or interpreter is working. After several days of research I was able to collect a large number of Hello World sample programs and assemble them into one document, alongside other information (such as popularity on Github by number of commits). All of the data is stored in a JavaScript array and is populated into the site dynamically, meaning that elements can be added or removed freely. Overall, I was able to assemble a total of 38 languages to display on the site, each with their own valid Hello World programs.
