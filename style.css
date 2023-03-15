@@ -1,0 +1,105 @@
+@import "pagesection.css";
+@import "languagebtn.css";
+@import "modal.css";
+
+body
+{
+    margin:0;
+}
+
+h1
+{
+    font-size:4em;
+    font-family: aviano-future, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    color:white;
+}
+
+h2
+{
+    font-family: aviano-future, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    color:white;
+}
+
+p, span, li
+{
+    font-family: ff-good-headline-web-pro-ext, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+footer li
+{
+    color:lightgrey;
+    padding-bottom:0.5em;
+}
+
+footer a
+{
+    color:darkgrey;
+    transition: color 0.25s;
+}
+
+footer a:hover
+{
+    color:white;
+    transition:color 0.25s;
+}
+
+main
+{
+    display:grid;
+    grid-row-gap: 1em;
+    align-items:center;
+}
+
+@media only screen and (min-width: 286px) and (max-width: 425px)  
+{
+    main
+    {
+        grid-template-columns:auto auto;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 570px)  
+{
+    main
+    {
+        grid-template-columns:auto auto auto;
+    }
+}
+
+@media only screen and (min-width: 571px) and (max-width: 715px)  
+{
+    main
+    {
+        grid-template-columns:auto auto auto auto;
+    }
+}
+
+@media only screen and (min-width: 716px) and (max-width: 855px)  
+{
+    main
+    {
+        grid-template-columns:auto auto auto auto auto;
+    }
+}
+
+@media only screen and (min-width: 856px) and (max-width: 999px)
+{
+    main
+    {
+        grid-template-columns:auto auto auto auto auto auto;
+    }
+}
+
+@media only screen and (min-width: 1000px)
+{
+    main
+    {
+        grid-template-columns:auto auto auto auto auto auto auto;
+    }
+}

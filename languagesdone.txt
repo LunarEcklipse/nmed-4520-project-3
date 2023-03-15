@@ -1,0 +1,35 @@
+ALGOL
+Assembly (x86)
+Assembly (ARM)
+C
+C++
+C#
+PHP
+Python
+Javascript
+Rust
+COBOL
+Java
+Kotlin
+Go
+Julia
+Lua
+TypeScript
+Haskell
+Ruby
+Perl
+Bash
+Swift
+Brainfuck
+HTML
+Scala
+Dart
+Groovy
+Objective-C
+Fortran
+Visual Basic
+QBasic
+F#
+MATLAB
+Lisp
+Pascal

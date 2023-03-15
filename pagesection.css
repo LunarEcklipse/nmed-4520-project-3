@@ -1,0 +1,21 @@
+.pagesection
+{
+    width:100%;
+    padding-top:1em;
+    padding-bottom:1em;
+}
+
+.pagesection--dark
+{
+    background-color: #423D53;
+}
+
+.pagesection--light
+{
+    background-color: #9999A6;
+}
+
+.pagesection--movingtext
+{
+    text-align:center;
+}

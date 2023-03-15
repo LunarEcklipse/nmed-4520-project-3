@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello World!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.typekit.net/xuo3rsu.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="pagesection--dark">
+        <header class="pagesection pagesection--dark pagesection--movingtext">
+            <h1>Hello World!</h1>
+            <h2>A collection of Hello World programs across multiple languages.</h2>
+        </header>
+        <div id="lang-modal-wrapper" class="modal__background">
+            <div id="modal-box" class="modal__box pagesection--light">
+                <span id="modal__close" class="modal__close">&times;</span>
+                <h1 class="modal__header">{language_title}</h1>
+                <hr>
+                <div class="modal__infobox">
+                    <span id="modal__firstappeared" class="modal__infobox__text"><b>First Appeared:</b> {first_appeared}</span>
+                    <span id="modal__fileext" class="modal__infobox__text"><b>File Extension:</b> {file_ext}</span>
+                    <span id="modal__githubrank" class="modal__infobox__text"><b>Github Rank:</b> {github_rank}</span>
+                    <span id="modal__website" class="modal__infobox__text"><b>Website:</b> {website}</span>
+                </div>
+                <p id="modal__desc">A long description goes here.</p>
+                <div class="modal__codeblock">
+                    <pre>{code}</pre>
+                </div>
+                <p id="modal__funfact"><i>{fun_fact}</i></p>
+            </div>
+        </div>
+        <main id="btn-wrapper" class="pagesection pagesection--light"> <!-- We gave main an ID here to make it easy to alter the inner HTML of the element. -->
+        </main>
+        <footer class="pagesection pagesection--dark pagesection--movingtext">
+            <ol type="1" id="citation-list">
+                <li class="citation">Github Language Popularity Rankings from <a href="https://madnight.github.io/githut/#/pull_requests/2022/4">madnight.github.io</a>.</li>
+                <li class="citation">ALGOL Logo created by myself (Kaden Duncan-Matis). CC BY-SA 4.0.</li>
+                <li class="citation">ARM Assembly Logo created by myself (Kaden Duncan-Matis). CC BY-SA 4.0.</li>
+                <li class="citation">x86 Assembly Logo created by myself (Kaden Duncan-Matis). CC BY-SA 4.0.</li>
+                <li class="citation">Bash Logo provided by the Free Software Foundation. Available as part of the Gnu General Public License Version 2 or later. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Bash_Logo_Colored.svg">Wikipedia</a>.</li>
+                <li class="citation">Brainfuck logo by cagataycali. Fair use. Acquired from: <a href="https://github.com/cagataycali/awesome-brainfuck">Github</a>.</li>
+                <li class="citation">C logo by ElodinKaldwin. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:C_Sharp_wordmark.svg">Wikipedia</a>.</li>
+                <li class="citation">C++ logo provided by the C++ Foundation. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg">Wikipedia</a>.</li>
+                <li class="citation">C# logo provided by Microsoft. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg">Wikipedia</a>.</li>
+                <li class="citation">CMD icon by Microsoft. Fair use. Acquired from <a href="https://en.wikipedia.org/wiki/File:Command_prompt_icon_(windows).png">Wikipedia</a>.</li>
+                <li class="citation">COBOL logo from <a href="https://www.krescentglobal.com/pages/cloud-services/cobol-migration-services.html">Krescent Global</a>.</li>
+                <li class="citation">Dart logo provided by <a href="https://dart.dev/">dart.dev</a>. CC BY 3.0. Acquired from <a href="https://en.wikipedia.org/wiki/File:Dart-logo.png">Wikipedia</a>.</li>
+                <li class="citation">F# logo by the F# Foundation. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:F_Sharp_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Fortran logo created by the Fortran community. CC0. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Fortran_logo.svg#/media/File:Fortran_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Go logo created by the Go development team. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Go_Logo_Blue.svg">Wikipedia</a>.</li>
+                <li class="citation">Groovy logo created by Zorak1103. CC BY-SA 3.0. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Groovy-logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Haskell logo acquired from <a href="https://www.flaticon.com/free-icons/programming-language">Freepik</a>. Available via the <a href="https://www.freepikcompany.com/legal#nav-flaticon">Flaticon Editorial License</a>.</li>
+                <li class="citation">HTML logo by <a href="https://www.w3.org/html/logo/index.html">W3C</a>. CC BY 3.0. </li>
+                <li class="citation"><a href="http://www.logoeps.com/java-eps-vector-logo/40925/">Java logo</a> created by Mark Anderson (work for hire for Sun Microsystems). Fair use. Acquired from <a href="https://en.wikipedia.org/wiki/File:Java_programming_language_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">JavaScript logo created by Chris Williams. Provided under the MIT License. Acquired from <a href="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png">Wikipedia</a>.</li>
+                <li class="citation">Julia logo created by The Julia Project. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Julia_Programming_Language_Logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Kotlin logo created by JetBrains. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Kotlin_Icon.svg">Wikipedia</a>.</li>
+                <li class="citation">Lisp logo by Jooja. CC BY-SA 4.0. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Lisp_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Lua logo created by the <a href="http://www.lua.org/images/">Lua development team</a>. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Lua-Logo.svg">Wikipedia</a>.</li>
+                <li class="citation">MATLAB logo by Jarekt. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Matlab_Logo.png">Wikipedia</a>.</li>
+                <li class="citation">Objective-C Logo created by myself (Kaden Duncan-Matis). CC BY-SA 4.0.</li>
+                <li class="citation">Perl logo by <a href="https://seeklogo.com/vector-logo/107704/perl">Seeklogo</a>. Fair Use. Acquired from <a href="https://en.wikipedia.org/w/index.php?curid=69091026">Wikipedia</a>.</li>
+                <li class="citation">PHP logo from <a href="https://www.php.net/download-logos.php">www.php.net</a>. CC BY-SA 4.0.</li>
+                <li class="cittaion">PowerShell logo by Microsoft. Available under the MIT License. Acquired from <a href="https://commons.wikimedia.org/wiki/File:PowerShell_Core_6.0_icon.png">Wikipedia</a>.</li>
+                <li class="citation">Python logo by the Python Foundation. Available as part of the Gnu General Public License Version 2 or later. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg">Wikipedia</a>.</li>
+                <li class="citation">R logo by Hadley Wickham and others at RStudio, <a href="https://www.r-project.org/logo/">www.r-project.org</a>. CC BY-SA 4.0. Acquired from <a href="https://commons.wikimedia.org/w/index.php?curid=35599651">Wikipedia</a>.</li>
+                <li class="citation">Ruby logo by <a href="https://www.ruby-lang.org/en/about/logo/">Yukihiro Matsumoto and the Ruby Visual Identity Team</a>. CC BY-SA 2.5. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Ruby_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Rust logo by the Rust Foundation. CC BY-SA 4.0. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Rust_programming_language_black_logo.svg">Wikipedia</a>.</li>
+                <li class="citation">Scala logo acquired from <a href="https://www.flaticon.com/free-icons/programming-language">Freepik</a>. Available via the <a href="https://www.freepikcompany.com/legal#nav-flaticon">Flaticon Editorial License</a>.</li></li>
+                <li class="citation">Swift logo provided by <a href="https://developer.apple.com/swift/resources/">Apple</a>. Used with permission.</li>
+                <li class="citation">TypeScript logo by Microsoft. CC BY-SA 4.0. Acquired from <a href="https://commons.wikimedia.org/wiki/File:Typescript.svg">Wikipedia</a>.</li>
+                <li class="citation">Visual Basic logo by Microsoft. Public domain. Acquired from <a href="https://commons.wikimedia.org/wiki/File:VB.NET_Logo.svg">Wikipedia</a>.</li>
+            </ul>
+        </footer>
+    </body>
+        <script type="application/javascript">
+            // Any language with a github rank of 101 means that the item wasn't actually on the rankings. This is accounted for in the modal. We store it as a number to make sorting viable.
+            const langs = [
+                {
+                    id: "algol",
+                    n: "ALGOL",
+                    logo: "algol.png",
+                    firstAppeared: "1958",
+                    fileext: ".alg",
+                    githubrank: 101,
+                    website: null,
+                    desc: "ALGOL (\"Algorithmic Language\") is one of the first non-assembly computer languages. It did not achieve the same success as its contemporaries and is generally considered a dead language today.",
+                    funfact: "The last release of ALGOL (ALGOL 68) was widely disliked by the ALGOL community, so most modern uses of ALGOL are actually the older ALGOL 60 (<a href=\"https://www.cs.ru.nl/~hubbers/courses/sl1/rr.pdf\">Revised Report on the Algorithmic Language</a>).",
+                    code: `BEGIN
+FILE F (KIND=REMOTE);
+EBCDIC ARRAY E [0:11];
+REPLACE E BY "HELLO WORLD!";
+WHILE TRUE DO
+    BEGIN
+    WRITE (F, *, E);
+    END;
+END.`
+                },
+                {
+                    id: "armasm",
+                    n: "Assembly (ARM)",
+                    logo: "arm.png",
+                    firstAppeared: "1985",
+                    fileext: ".asm",
+                    githubrank: 52,
+                    website: null,
+                    
+                    desc: "ARM Assembly is a variant of assembly language used on ARM processors. Like other assembly languages, it is meant to be a human-readable abstraction on top of binary machine code, meaning that it is machine-specific. ARM assembly is primarily used on devices with a small form factor, as ARM processors can be much smaller and require less power than x86 processors.",
+                    funfact: "Some ARM processors don't actually have a divide instruction because division is slow and takes up too much space. Instead, these processors achieve divison through special forms of multiplication (<a href=\"https://youtu.be/ssDBqQ5f5_0\">Low Level Learning</a>)",
+                    code: `/* Written for Raspberry Pi 4 running Raspbian OS. Code from: http://main.lv/writeup/arm64_assembly_hello_world.md */
+.data
+
+/* Data segment: define our message string and calculate its length. */
+helloworld:
+    .ascii        "Hello World!\n"
+helloworld_len = . - helloworld
+
+.text
+
+/* Our application's entry point. */
+.globl _start
+_start:
+    /* syscall write(int fd, const void *buf, size_t count) */
+    mov     x0, #1              /* fd := STDOUT_FILENO */
+    ldr     x1, =helloworld     /* buf := msg */
+    ldr     x2, =helloworld_len /* count := len */
+    mov     w8, #64             /* write is syscall #64 */
+    svc     #0                  /* invoke syscall */
+
+    /* syscall exit(int status) */
+    mov     x0, #0               /* status := 0 */
+    mov     w8, #93              /* exit is syscall #1 */
+    svc     #0                   /* invoke syscall */`
+            },
+                {
+                    id: "x86asm",
+                    n: "Assembly (x86)",
+                    logo: "x86.png",
+                    firstAppeared: "1972",
+                    fileext: ".asm",
+                    githubrank: 52,
+                    website: null,
+                    
+                    desc: "x86 Assembly is an assembly language used on x86 processors. Like other assembly languages, it is meant to be a human-readable abstraction on top of binary machine code, meaning that it is machine-specific. x86 Assembly was created for the Intel 8008 processor. (<a href=\"https://www.cpu-world.com/CPUs/8008/\">CPU World</a>)",
+                    funfact: "Despite its age, x86 assembly remains one of the most widely used assembly languages today.",
+                    code: `; Written for Linux. Code from: https://jameshfisher.com/2018/03/10/linux-assembly-hello-world/
+global _start
+
+section .text
+
+_start:
+mov rax, 1        ; write(
+mov rdi, 1        ;   STDOUT_FILENO,
+mov rsi, msg      ;   "Hello, world!\n",
+mov rdx, msglen   ;   sizeof("Hello, world!\n")
+syscall           ; );
+
+mov rax, 60       ; exit(
+mov rdi, 0        ;   EXIT_SUCCESS
+syscall           ; );
+
+section .rodata
+msg: db "Hello world!", 10
+msglen: equ $ - msg`
+                },
+                {
+                    id: "clang",
+                    n: "C",
+                    logo: "c.png",
+                    firstAppeared: "1972",
+                    fileext: ".c",
+                    githubrank: 9,
+                    website: "<a href=\"https://www.iso.org/standard/74528.html\">www.iso.org</a>",
+                    desc: "C is a statically-typed compiled programming language which is arguably the most important programming language in the world. It was used to create many important low-level systems, such as the Windows and Linux operating systems.",
+                    funfact: "C's name comes from the fact that it's the successor to the programming language B (<a href=\"https://ecomputernotes.com/what-is-c/basic-of-c-programming/a-brief-history-of-c-why-we-use-c-programming-language\">E Computer Notes</a>).",
+                    code: `// Code from: https://www.programiz.com/c-programming/examples/print-sentence
+#include &lt;stdio.h&gt;
+int main() {
+   printf("Hello World!\n");
+   return 0;
+}`
+                },
+                {
+                    id: "cpp",
+                    n: "C++",
+                    logo: "cplusplus.png",
+                    firstAppeared: "1985",
+                    fileext: ".cpp",
+                    githubrank: 6,
+                    website: '<a href="https://isocpp.org">www.isocpp.org</a>',
+                    desc: "C++ is a statically-typed compiled progamming language designed to act as a superset of C. It adds numerous high-level abstractions like object-oriented programming with little to no performance overhead. It is infamous for its extremely steep learning curve.",
+                    funfact: 'C++ was originally called "C with Classes", as its main selling point was adding object-oriented programming to C (<a href="https://www.stroustrup.com/bs_faq.html#invention">Bjarne Stroustrup</a>).',
+                    code: `// Code written by myself.
+#include &lt;iostream&gt;
+int main() {
+   std::cout &lt;&lt; "Hello World!" &lt;&lt; std::endl;
+   return 0;
+}`
+                },
+                {
+                    id: "csharp",
+                    n: "C#",
+                    logo: "csharp.png",
+                    firstAppeared: "2000",
+                    fileext: ".cs",
+                    githubrank: 5,
+                    website: '<a href="https://learn.microsoft.com/en-us/dotnet/csharp/">learn.microsoft.com</a>',
+                    desc: "C# is a high-level statically-typed compiled programming language designed by Microsoft to be an object-oriented successor to C. Instead of compiling to native machine code it compiles to an intermediate language which can be ran on any operating system without major code changes (provided it has the .NET framework installed).",
+                    funfact: 'C# was originally called "COOL" (C-like Object Oriented Language) (<a href="https://web.archive.org/web/20190518115808/https://www.computerworld.com.au/article/261958/a-z_programming_languages_c_/">Computer World</a>).',
+                    code: `// Code written by myself.
+using System;
+  
+namespace HelloWorld {
+      
+    class Hello {
+          
+        static void Main(string[] args) {
+            Console.WriteLine("Hello World!");
+        }
+    }
+}`
+                },
+                {
+                    id: "python",
+                    n: "Python",
+                    logo: "python.png",
+                    firstAppeared: "February 20, 1991",
+                    fileext: ".py",
+                    githubrank: 1,
+                    website: '<a href="https://www.python.org">python.org</a>',
+                    desc: "Python is a dynamically-typed scripting language which emphasizes readability and simplicity, making it popular for beginners. This has made Python one of the most popular languages in the world.",
+                    funfact: 'Python was named after the British comedy group Monty Python, which is why code samples often use "spam" and "eggs" instead of "foo" and "bar" (<a href="https://docs.python.org/3/faq/general.html#why-is-it-called-python">Python.org</a>).',
+                    code: `# Code written by myself.
+print("Hello World!")`
+                },
+                {
+                    id: "js",
+                    n: "Javascript",
+                    logo: "javascript.png",
+                    firstAppeared: "December 4, 1995",
+                    fileext: ".js",
+                    githubrank: 3,
+                    website: '<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/">www.ecma-international.org</a>',
+                    desc: "JavaScript is a dynamically typed scripting language used to create render client-side dynamic web content. As one of the W3C's standards, Javascript is supported by most modern browsers and as such is arguably the most used programming language in the world.",
+                    funfact: 'The first version of JavaScript was created in only 10 days. (<a href="https://opensource.com/article/20/10/history-javascript">Open Source</a>)',
+                    code: `// Code written by myself.
+console.log("Hello World!");`
+                },
+                {
+                    id: "php",
+                    n: "PHP",
+                    logo: "php.png",
+                    firstAppeared: "June 8, 1995",
+                    fileext: ".php",
+                    githubrank: 7,
+                    website: '<a href="https://www.php.net">www.php.net</a>',
+                    desc: "PHP (Hypertext Preprocessor) is a dynamically-typed scripting language created to process and render HTML content on a server-side basis. It powers many large sites including Wikipedia, as well as all websites on the Wordpress framework.",
+                    funfact: 'PHP originally stood for \"Personal Home Page\", and its current meaning is a recursive acronym.(<a href="https://www.php.net/manual/en/history.php.php">PHP</a>).',
+                    code: `<!-- Code from: https://www.php.net/manual/en/tutorial.firstpage.php -->
+<html>
+<head>
+<title>Hello World!</title>
+</head>
+<body>
+<?php echo '<p>Hello World!</p>'; ?>
+</body>
+</html>`
+                },
+                {
+                    id: "rust",
+                    n: "Rust",
+                    logo: "rust.png",
+                    firstAppeared: "April 15, 2015",
+                    fileext: ".rs",
+                    githubrank: 15,
+                    website: '<a href="https://www.rust-lang.org/">www.rust-lang.org</a>',
+                    desc: "A relatively new language, Rust is a statically-typed compiled language that quickly came into favor with developers. , Rust is unique among many compiled languages for being inherently memory-safe (unlike other compiled languages like C and C++) without the use of a garbage collector, something that it achieves using a system of \"ownership\" and \"borrowing\", whereby variables can only have one existing reference at a time.",
+                    funfact: 'Rust ranked number 1 in a Stack Overflow survey of the most loved programming languages (<a href="https://survey.stackoverflow.co/2022/">Stack Overflow</a>).',
+                    code: `// Code written by myself.
+fn main()
+{
+    println!("Hello World!");
+}`
+                },
+                {
+                    id: "cobol",
+                    n: "COBOL",
+                    logo: "cobol.png",
+                    firstAppeared: "1959",
+                    fileext: ".cbl",
+                    githubrank: 101,
+                    website: null,
+                    desc: "A very old language, COBOL (\"Common Business Oriented Language\") is a compiled language designed to be very similar to English. Despite its emphasis on readability, COBOL is widely disliked for its extreme verbosity, but it remains in use as it is the language of choice for many old mainframe computers still in use today.",
+                    funfact: 'COBOL ranked number 1 in a Stack Overflow survey of the most dreaded programming languages in 2022 (<a href="https://survey.stackoverflow.co/2022/">Stack Overflow</a>).',
+                    code: `****** Code from: https://www.tutorialbrain.com/mainframe/cobol_hello_world_program/
+000100 IDENTIFICATION DIVISION.
+000200 PROGRAM-ID. HELLOWRD.
+000300 PROCEDURE DIVISION.
+000400 DISPLAY "HELLO WORLD".
+000500 STOP RUN.`
+                },
+                {
+                    id: "java",
+                    n: "Java",
+                    logo: "java.png",
+                    firstAppeared: "May 23, 1995",
+                    fileext: ".java",
+                    githubrank: 2,
+                    website: '<a href="https://www.java.com/">www.java.com</a>',
+                    desc: "Java is a statically-typed compiled language. It is best-known for compiling into machine-independent bytecode.",
+                    funfact: 'Java was the language of choice for NASA during the development of the Mars Rover Spirit (<a href="https://www.cnet.com/tech/tech-industry/java-runs-remote-controlled-mars-rover/">CNET</a>).',
+                    code: `// Code written by myself.
+class HelloWorld
+{
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}`
+                },
+                {
+                    id: "kotlin",
+                    n: "Kotlin",
+                    logo: "kotlin.png",
+                    firstAppeared: "July 22, 2011",
+                    fileext: ".kt",
+                    githubrank: 16,
+                    website: '<a href="https://kotlinlang.org/">www.kotlinlang.org</a>',
+                    desc: "Kotlin is a statically-typed compiled language. It was designed from the ground-up to fully interoperate with Java, compiling to the Java Virtual Machine. However, it can also compile to other targets like JavaScript and native machine code.",
+                    funfact: 'Kotlin is named after Kotlin Island in Russia (<a href="https://medium.com/@rohinideshmane.21/introduction-to-kotlin-5f39b31610e0">Medium</a>).',
+                    code: `// Code written by myself with help from @Shengaero#9090 on Discord.
+fun main(args : Array<String>) {
+    println("Hello World!")
+}`
+                },
+                {
+                    id: "go",
+                    n: "Go",
+                    logo: "go.png",
+                    firstAppeared: "November 10, 2009",
+                    fileext: ".go",
+                    githubrank: 5,
+                    website: '<a href="https://go.dev/">go.dev</a>',
+                    desc: "Go is a statically-typed compiled language developed by Google. Go was built to be a more modern variant of C, with new features such as memory safety via a garbage collector.",
+                    funfact: 'Go is sometimes incorrectly called "Golang", likely because the language\'s website used to use that domain name (<a href="https://go.dev/doc/faq#go_or_golang">Go</a>).',
+                    code: `// Code from: https://gobyexample.com/hello-world
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("hello world")
+}`
+                },
+                {
+                    id: "julia",
+                    n: "Julia",
+                    logo: "julia.png",
+                    firstAppeared: "2012",
+                    fileext: ".jl",
+                    githubrank: 45,
+                    website: '<a href="https://julialang.org/">julialang.org</a>',
+                    desc: "Julia is a dynamically-typed interpreted language primarily built for computer science and advanced numerical calculation.",
+                    funfact: 'According to one of the language\'s developers, Julia\'s name was chosen because it "just seemed like a pretty name" (<a href="https://www.infoworld.com/article/2616709/new-julia-language-seeks-to-be-the-c-for-scientists.html">Info World</a>).',
+                    code: `# Code from: https://juliabyexample.helpmanual.io/
+println("Hello World!")`
+                },
+                {
+                    id: "lua",
+                    n: "Lua",
+                    logo: "lua.png",
+                    firstAppeared: "1993",
+                    fileext: ".lua",
+                    githubrank: 22,
+                    website: '<a href="https://www.lua.org/">lua.org</a>',
+                    desc: "Lua is a dynamically-typed scripting language notable for being incredibly fast and lightweight. With a small keyword set and very simple mechanisms, Lua is often the language of choice for embedded scripting languages in other software, and is the scripting language used in software like Roblox.",
+                    funfact: 'Lua was developed in response to strict trade barriers for computer hardware and software imposed by the Brazilian government at the time, as the developers could not afford to buy customized software from outside of the country (<a href="https://www.lua.org/doc/hopl.pdf">Lua</a>).',
+                    code: `-- Code written by myself.
+print("Hello World!")`
+                },
+                {
+                    id: "typescript",
+                    n: "TypeScript",
+                    logo: "typescript.png",
+                    firstAppeared: "1 October 2012",
+                    fileext: ".ts",
+                    githubrank: 6,
+                    website: '<a href="https://www.typescriptlang.org/">www.typescriptlang.org</a>',
+                    desc: "TypeScript is a statically-typed scripting language built by Microsoft. TypeScript was built to add a static type system to JavaScript, something that is often regarded as a weakness of traditional JavaScript. While TypeScript \"compiles\" into JavaScript, the use of a static typing system can help greatly reduce errors resulting from type incompatabilities.",
+                    funfact: 'Microsoft developed TypeScript to alleviate numerous problems it faced when developing large-scale JavaScript applications for clients (<a href="https://www.hanselminutes.com/340/what-is-typescript-and-why-with-anders-hejlsberg">Hansel Minutes</a>).',
+                    code: `// Code from: https://code.visualstudio.com/docs/typescript/typescript-tutorial
+let message: string = 'Hello World!';
+console.log(message);`
+                },
+                {
+                    id: "haskell",
+                    n: "Haskell",
+                    logo: "haskell.png",
+                    firstAppeared: "1990",
+                    fileext: ".hs",
+                    githubrank: 34,
+                    website: '<a href="https://www.haskell.org/">www.haskell.org</a>',
+                    desc: "Haskell is a statically-typed compiled language notable for being a purely functional language. As a functional programming language, every line of Haskell evaluates to an expression, and the output of each expression will always be the same when given the same input.",
+                    funfact: 'Haskell is named after logician Haskell Curry, whose work was imperative to the language\'s design and functionality (<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/07/history.pdf?from=https://research.microsoft.com/~simonpj/papers/history-of-haskell/history.pdf&type=exact">A History of Haskell: Being Lazy With Class</a>).',
+                    code: `// Code from: https://www.w3schools.io/languages/haskell-hello-world/
+module Main where
+main = putStrLn "Hello, World!"`
+                },
+                {
+                    id: "ruby",
+                    n: "Ruby",
+                    logo: "ruby.png",
+                    firstAppeared: "1995",
+                    fileext: ".rb",
+                    githubrank: 8,
+                    website: '<a href="https://www.ruby-lang.org/">www.ruby-lang.org</a>',
+                    desc: "Ruby is a dynamically-typed scripting language developed with a focus on simplicity and productivity.",
+                    funfact: 'The name "Ruby" was chosen after a the birthstone of one of the developer\'s colleagues (<a href="https://ruby-doc.org/docs/ruby-doc-bundle/FAQ/FAQ.html">Ruby Doc</a>).',
+                    code: `# Code from: https://www.geeksforgeeks.org/hello-world-in-ruby/
+puts "Hello World!"`
+                },
+                {
+                    id: "perl",
+                    n: "Perl",
+                    logo: "perl.png",
+                    firstAppeared: "December 18, 1987",
+                    fileext: ".pl",
+                    githubrank: 25,
+                    website: '<a href="https://www.perl.org/">www.perl.org</a>',
+                    desc: "Perl is a dynamically-typed scripting language primarily known for its very concise syntax.",
+                    funfact: 'Perl was originally named "Pearl", but the name was changed just before release after the developer discovered the existence of another programming language called "PEARL" (<a href="https://www.linuxjournal.com/article/3394">Linux Journal</a>).',
+                    code: `# Code from: https://www.perltutorial.org/developing-the-first-perl-program/
+#!/usr/bin/perl
+use warnings;
+print("Hello, World!\n");`
+                },
+                {
+                    id: "bash",
+                    n: "Bash",
+                    logo: "bash.png",
+                    firstAppeared: "June 8, 1989",
+                    fileext: ".sh",
+                    githubrank: 11,
+                    website: '<a href="https://www.gnu.org/software/bash/">www.gnu.org</a>',
+                    desc: "Bash is a shell scripting language developed as part of the GNU project. It is the most commonly terminal distributed with Linux.",
+                    funfact: 'One of the first shells was known as the "Bourne Shell". As such, Bash\'s name was derived from this, standing for "Bourne Again Shell" (<a href="https://www.gnu.org/gnu/thegnuproject.html">The Gnu Project</a>).',
+                    code: `# Code from: https://www.cyberciti.biz/faq/hello-world-bash-shell-script/
+#!/bin/bash
+echo "Hello World"`
+                },
+                {
+                    id: "swift",
+                    n: "Swift",
+                    logo: "swift.png",
+                    firstAppeared: "June 2, 2014",
+                    fileext: ".swift",
+                    githubrank: 17,
+                    website: '<a href="https://www.swift.org/">www.swift.org</a>',
+                    desc: "Swift is a statically-typed compiled language developed by Apple. It was designed from the ground-up for developing software for Apple platforms like MacOS and iOS.",
+                    funfact: 'Swift was built as a replacement for Apple\'s previous programming language Objective-C (<a href="https://arstechnica.com/gadgets/2014/06/a-fast-look-at-swift-apples-new-programming-language/">Ars Technica</a>).',
+                    code: `// Code from: https://www.geeksforgeeks.org/swift-hello-world-program/
+import Foundation
+print("Hello, World!")`
+                },
+                {
+                    id: "brainfuck",
+                    n: "Brainfuck",
+                    logo: "brainfuck.png",
+                    firstAppeared: "September 1993",
+                    fileext: ".bf",
+                    githubrank: 101,
+                    website: null,
+                    desc: "Brainfuck is an esoteric programming language designed as more of a piece of art than as a viable language. While it is turing complete, it was not designed for practical use.",
+                    funfact: 'Brainfuck was developed with the intention of creating a turing-complete language with the smallest possible compiler. The developer achieved this goal on an Amiga computer, with the first version of the compiler only being 296 bytes in size. A second version would reduce this size to only 240 bytes (<a href="https://web.archive.org/web/20051106213924/http://www.aminet.net/package.php?package=dev%2Flang%2Fbrainfuck-2.lha">brainfuck-2.lha</a>).',
+                    code: `Code from: https://therenegadecoder.com/code/hello-world-in-brainfuck/
+
+&gt;++++++++[&lt;+++++++++&gt;-]&lt;.&gt;++++[&lt;+++++++&gt;-]&lt;+.+++++++..+++.&gt;&gt;++++++[&lt;+++++++&gt;-]&lt;+
++.------------.&gt;++++++[&lt;+++++++++&gt;-]&lt;+.&lt;.+++.------.--------.&gt;&gt;&gt;++++[&lt;++++++++&gt;-
+]&lt;+.`
+                },
+                {
+                    id: "html",
+                    n: "HTML",
+                    logo: "html.png",
+                    firstAppeared: "1993",
+                    fileext: ".html",
+                    githubrank: 13,
+                    website: '<a href="https://html.spec.whatwg.org/">html.spec.whatwg.org</a>',
+                    desc: "HTML (\"Hypertext Markup Language\") is a language which defines the content and structure of a web page. It is used in conjunction with CSS (Cascading Style Sheets), with HTML defining the content and structure of a page, and CSS being responsible for its styling.",
+                    funfact: 'HTML is actually a turing-complete language (<a href="https://lemire.me/blog/2011/03/08/breaking-news-htmlcss-is-turing-complete/">lemire.me</a>).',
+                    code: `&lt;!--Code written by myself.--&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Hello World!&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Hello World!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;`
+                },
+                {
+                    id: "scala",
+                    n: "Scala",
+                    logo: "scala.png",
+                    firstAppeared: "January 20, 2004",
+                    fileext: ".sc",
+                    githubrank: 14,
+                    website: '<a href="https://www.scala-lang.org/">www.scala-lang.org</a>',
+                    desc: "Scala is a statically-typed language that compiles to the Java Virtual Machine. It was designed to be more concise than Java, a language known for having particularly verbose code.",
+                    funfact: 'The developers of Scala received a €2.3 million research grant from the European Research Council in 2011 for their work on Scala (<a href="https://www.scala-lang.org/old/node/8579">Scala</a>).',
+                    code: `// Code from: https://docs.scala-lang.org/overviews/scala-book/hello-world-1.html
+object Hello {
+    def main(args: Array[String]) = {
+        println("Hello World!")
+    }
+}`
+                },
+                {
+                    id: "dart",
+                    n: "Dart",
+                    logo: "dart.png",
+                    firstAppeared: "October 10, 2011",
+                    fileext: ".dart",
+                    githubrank: 19,
+                    website: '<a href="https://dart.dev/">www.dart.dev</a>',
+                    desc: "Dart is a statically-typed compiled language developed by Google. It was designed to aid in the development of both mobile and web-based applications.",
+                    funfact: 'Google originally planned to include a Dart Virtual Machine in Google Chrome, but dropped this plan after they were criticized for "fragmenting the web", instead choosing to build Dart to be able to compile to JavaScript (<a href="https://news.dartlang.org/2015/03/dart-for-entire-web.html">Dart</a>).',
+                    code: `// Code from: https://dart.dev/samples
+void main() {
+  print('Hello World!');
+}`
+                },
+                {
+                    id: "groovy",
+                    n: "Groovy",
+                    logo: "groovy.png",
+                    firstAppeared: "2003",
+                    fileext: ".gy",
+                    githubrank: 26,
+                    website: '<a href="https://groovy-lang.org/">groovy-lang.org</a>',
+                    desc: "Groovy (also known as Apache Groovy) is a statically-typed language that compiles to the Java Virtual Machine. The Groovy project is part of the Apache Software Foundation.",
+                    funfact: 'Groovy won first prize at the JAX 2007 Innovation Awards (<a href="https://web.archive.org/web/20150513184206/http://docs.codehaus.org/display/GROOVY/2007/04/26/Groovy+wins+first+prize+at+JAX+2007+innovation+award">Confluence</a>).',
+                    code: `// Code from: https://www.tutorialspoint.com/groovy/groovy_basic_syntax.htm
+class Example {
+   static void main(String[] args) {
+      // Using a simple println statement to print output to the console
+      println('Hello World!');
+   }
+}`
+                },
+                {
+                    id: "objective-c",
+                    n: "Objective-C",
+                    logo: "objective-c.png",
+                    firstAppeared: "1984",
+                    fileext: ".mm",
+                    githubrank: 28,
+                    website: '<a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">developer.apple.com</a>',
+                    desc: "Objective-C is a statically-typed compiled language developed by Apple. It was designed to serve as an object-oriented version of the C programming language for use with Apple platforms.",
+                    funfact: 'Objective-C was replaced by the Swift programming language in 2014.',
+                    code: `// Code from: https://www.digitalocean.com/community/tutorials/objective-c-hello-world-tutorial
+#import <Foundation/Foundation.h>
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        // insert code here...
+        NSLog(@"Hello, World!");
+    }
+    return 0;
+}`
+                },
+                {
+                    id: "fortran",
+                    n: "Fortran",
+                    logo: "fortran.png",
+                    firstAppeared: "1957",
+                    fileext: ".f",
+                    githubrank: 68,
+                    website: '<a href="https://fortran-lang.org/en/">fortran-lang.org</a>',
+                    desc: "Fortran (\"Formula Translator\") is a statically-typed compiled language designed to be easier to write than Assembly. Being one of the first high-level programming languages, Fortran became immensely popular and is still widely in use today in high-performance computing applications.",
+                    funfact: 'The language\'s developer John Backus claimed he created Fortran as he was "too lazy" to hand-code Assembly. (<a href="https://www.azquotes.com/quote/1097209">A-Z Quotes</a>).',
+                    code: `! Code from: https://fortran-lang.org/en/learn/quickstart/hello_world/
+program hello
+    print *, 'Hello, World!'
+end program hello`
+                },
+                {
+                    id: "visual-basic",
+                    n: "Visual Basic",
+                    logo: "visualbasic.png",
+                    firstAppeared: "1991",
+                    fileext: ".vb",
+                    githubrank: 60,
+                    website: '<a href="https://learn.microsoft.com/en-ca/dotnet/visual-basic/">learn.microsoft.com</a>',
+                    desc: "Visual Basic is an object-oriented language built by Microsoft. A variant of BASIC, Visual Basic originally was a standalone language before being integrated into the .NET framework in 2008.",
+                    funfact: 'Visual Basic was built to make developing applications that made use of the Windows Graphical User Interface quick and easy.',
+                    code: `' Code from: https://www.tutlane.com/tutorial/visual-basic/vb-hello-world-program
+Imports System
+
+Module Module1
+   Sub Main()
+     Console.WriteLine("Hello World!")
+     Console.WriteLine("Press Enter Key to Exit.")
+     Console.ReadLine()
+   End Sub
+End Module`
+                },
+                {
+                    id: "qbasic",
+                    n: "QBasic",
+                    logo: "QBasic.png",
+                    firstAppeared: "1991",
+                    fileext: ".bas",
+                    githubrank: 101,
+                    website: null,
+                    desc: "QBasic is a dynamically typed scripting language designed to make programming accessible to the average person. It was bundled with MS-DOS 5.0 and early versions of Microsoft Windows.",
+                    funfact: 'An open-source project known as QB64 was created in 2007 as a way to bring the QBasic programming language to the 21st century (<a href="https://qb64.com/">qb64.com</a>).',
+                    code: `' Code written by myself.
+PRINT "Hello World!"`
+                },
+                {
+                    id: "fsharp",
+                    n: "F#",
+                    logo: "fsharp.png",
+                    firstAppeared: "2005",
+                    fileext: ".fs",
+                    githubrank: 54,
+                    website: '<a href="https://fsharp.org/">fsharp.org</a>',
+                    desc: "F# is a statically-typed programming language. It primarily runs on the .NET framework, but can also compile to JavaScript and and GPU code.",
+                    funfact: 'F# is built as a functional-first programming language, meaning that all statements are evaluated like functions and will always produce the same output given the same input.',
+                    code: `// Code from: https://www.codeproject.com/Articles/738093/Fsharp-Hello-World
+open System
+
+[&lt;EntryPoint&gt;]
+let main argv = 
+    printfn "Hello World" 
+    Console.ReadLine() |&gt; ignore
+    0`
+                },
+                {
+                    id: "matlab",
+                    n: "MATLAB",
+                    logo: "matlab.png",
+                    firstAppeared: "1970s",
+                    fileext: ".mat",
+                    githubrank: 59,
+                    website: '<a href="https://www.mathworks.com/products/matlab.html">www.mathworks.com</a>',
+                    desc: "MATLAB is a programming language designed for numeric computing and data plotting.",
+                    funfact: 'MATLAB is an abbreviation of \"MATrix LABoratory\" (<a href="https://www.mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html">MathWorks</a>).',
+                    code: `% Code from: https://therenegadecoder.com/code/hello-world-in-matlab/
+fprintf("Hello World!")`
+                },
+                {
+                    id: "lisp",
+                    n: "Lisp",
+                    logo: "lisp.png",
+                    firstAppeared: "1960",
+                    fileext: ".lisp",
+                    githubrank: 80,
+                    website: null,
+                    desc: "Lisp is a dynamically-typed programming language created to represent mathematical notation. It is best-known for pioneering the concept of dynamic typing.",
+                    funfact: 'Lisp stands for "LISt Processor".',
+                    code: `;;;; Code from: https://therenegadecoder.com/code/hello-world-in-lisp/
+(format t "Hello, World!")`
+                },
+                {
+                    id: "pascal",
+                    n: "Pascal",
+                    logo: "pascal.png",
+                    firstAppeared: "1970",
+                    fileext: ".pas",
+                    githubrank: 100,
+                    website: null,
+                    desc: "Pascal is a statically-typed programming language named after the French mathematician Blaise Pascal. It was created as a derivative of ALGOL.",
+                    funfact: 'Despite traditionally being considered a dead language, Pascal still sees some use, being ranked 100 in the top 100 most used languages on Github in 2022 (https://madnight.github.io/githut/#/pull_requests/2022/4">Github Language Popularity Rankings (Q4 2022)</a>).',
+                    code: `(* Code from: https://www.tutorialspoint.com/pascal/pascal_program_structure.htm *)
+program HelloWorld;
+uses crt;
+
+(* Here the main program block starts *)
+begin
+   writeln('Hello, World!');
+   readkey;
+end.`
+                },
+                {
+                    id: "powershell",
+                    n: "PowerShell",
+                    logo: "powershell.png",
+                    firstAppeared: "November 14, 2006",
+                    fileext: ".ps1",
+                    githubrank: 42,
+                    website: '<a href="https://learn.microsoft.com/en-ca/powershell/">microsoft.com/powershell</a>',
+                    desc: "PowerShell is a command-line shell and scripting language created by Microsoft built on the .NET framework.",
+                    funfact: 'PowerShell was made open source and cross-platform on August 18, 2016 (<a href="https://arstechnica.com/information-technology/2016/08/powershell-is-microsofts-latest-open-source-release-coming-to-linux-os-x/">Ars Technica</a>).',
+                    code: `# Code from: https://powershellbyexample.dev/post/hello-world/
+Write-Output 'Hello World!'`
+                },
+                {
+                    id: "cmd",
+                    n: "CMD",
+                    logo: "cmd.png",
+                    firstAppeared: "December 1987",
+                    fileext: ".bat",
+                    githubrank: 94,
+                    website: null,
+                    desc: "CMD, also sometimes known as \"Batch\" or \"Command Prompt\" is a command line interpreter and shell language for Windows systems.",
+                    funfact: 'CMD is the sucessor of \"COMMAND.COM\", the shell used in MS-DOS and early versions of Windows (<a href="https://archive.org/details/showstopperbreak00zach">G. Pascal Zachary</a>).',
+                    code: `:: Code written by myself.
+@echo off
+echo Hello World!`
+                },
+                {
+                    id: "rlang",
+                    n: "R",
+                    logo: "r.png",
+                    firstAppeared: "August 1993",
+                    githubrank: 55,
+                    website: '<a href="https://www.r-project.org/">www.r-project.org</a>',
+                    desc: "R is a dynamically-typed language designed for statistical computing and graphics.",
+                    funfact: 'According to a survey, R is one of the most popular language in use for data mining (<a href="https://www.r-bloggers.com/2012/05/r-tops-data-mining-software-poll/">R-Bloggers</a>).',
+                    code: `# Code from: https://www.datamentor.io/r-programming/examples/hello-world/
+print("Hello World!")
+
+# Quotes can be suppressed in the output
+print("Hello World!", quote = FALSE)`
+                }
+        ];
+
+        // LANGUAGE BUTTON TEMPLATE: <div id="{ID_HERE}" class="languagebtn"><img src="rsc/img/{IMG_HERE}" class="languagebtn__img"></div>
+
+        // When the document is fully loaded populate the page
+        
+        let mainElmnt = document.getElementById("btn-wrapper"); // Store a reference to the main div so we can change our button wrapping.
+        let modal = document.getElementById("lang-modal-wrapper");
+        let modalBox = document.getElementById("modal-box");
+        let isModalOpen = false;
+        let btnArray = []; // This array keeps a reference to each button after creation.
+
+        $(document).ready(function() {
+            sortLangArrayByName();
+            langs.forEach(createButton);
+        });
+
+        function recreateButtonArray() // Call this whenever the array needs to be remade, such as after a sort.
+        {
+            mainElmnt.innerHTML = ""; // This clears the inner HTML.
+            btnArray = []; // This clears the button array of all the old buttons.
+            langs.forEach(createButton); // This creates the new buttons.
+        }
+
+        function sortLangArrayByName()
+        {
+            langs.sort((a, b) => (a.n >= b.n) ? 1 : -1);
+        }
+
+        function insertButtonIntoMain(htmlStr) // This function inserts the button into the HTML in the required position.
+        {
+            mainElmnt.insertAdjacentHTML("beforeend", htmlStr);
+            btnArray.push(document.getElementById(""))
+        }
+
+        function createButton(item)
+        {
+            let tempStr = `<button type="button" id="${item.id}" class="languagebtn" onclick="openLanguageModal('${item.id}')"><img src="rsc/img/${item.logo}" title="${item.n}" alt="${item.n}" class="languagebtn__img"></button>`
+            insertButtonIntoMain(tempStr);
+        }
+
+        function generateModalContent(inLang)
+        {
+            let firstAppeared = "";
+            if (inLang.firstAppeared != null)
+            {
+                firstAppeared = `<span id="modal__firstappeared" class="modal__infobox__text"><b>First Appeared:</b> ${inLang.firstAppeared}</span>`;
+            }
+            let fileExt = "";
+            if (inLang.fileext != null)
+            {
+                fileExt = `<span id="modal__fileext" class="modal__infobox__text"><b>File Extension:</b> ${inLang.fileext}</span>`;
+            }
+            let githubRank = "";
+            if (inLang.githubrank != null)
+            {
+                if (inLang.githubrank <= 100 && inLang.githubrank > 0)
+                {
+                    githubRank = `<span id="modal__githubrank" class="modal__infobox__text"><b>Github Rank:</b> ${inLang.githubrank}</span>`
+                }
+            }
+            let website = "";
+            if (inLang.website != null)
+            {
+                website = `<span id="modal__website" class="modal__infobox__text"><b>Website:</b> ${inLang.website}</span>`
+            }
+            let outStr = `<span id="modal__close" class="modal__close" onclick="closeLanguageModal()">&times;</span>
+                <h1 class="modal__header">${inLang.n}</h1>
+                <hr>
+                <div class="modal__infobox">
+                    ${firstAppeared} ${fileExt} ${githubRank} ${website}
+                </div>
+                <p id="modal__desc">${inLang.desc}</p>
+                <div class="modal__codeblock">
+                    <pre>${inLang.code}</pre>
+                </div>
+                <p id="modal__funfact"><i>${inLang.funfact}</i></p>`
+            modalBox.innerHTML = outStr;
+            return;
+        }
+
+        function openLanguageModal(idString) // TODO: FINISH THIS
+        {
+            if (idString === null || !idString)
+            {
+                console.error("An ID was not provided to generate this modal. Aborting modal creation.");
+                return;
+            }
+            else if (isModalOpen === true)
+            {
+                console.error("A modal is already open. Ignoring request.");
+                return;
+            }
+            let outLang = null;
+            for (let i = 0; i < langs.length; ++i)
+            {
+                console.log(langs[i].id);
+                if (langs[i].id === idString)
+                {
+                    outLang = langs[i];
+                    break;
+                }
+            }
+
+            if (outLang === null)
+            {
+                console.error(`Could not find lang with ID: "${idString}".`);
+                return;
+            }
+            
+            generateModalContent(outLang);
+            modal.style.display = "block";
+            isModalOpen = true;
+            return;
+        }
+
+        function closeLanguageModal()
+        {
+            modal.style.display = "none";
+            isModalOpen = false;
+            return;
+        }
+        </script>
+</html>

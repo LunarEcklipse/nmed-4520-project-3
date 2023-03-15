@@ -1,0 +1,30 @@
+Aiming for 128px blocks
+
+0-150px
+- Centered text
+- 1 Column
+- 90vw for height and width.
+150px - 285px
+- Centered text
+- 1 Column
+- 128px wide
+285px - 425px
+- Centered text
+- 2 Columns
+- 128 px wide
+425 - 570
+- Centered text
+- 3 Columns
+- 128 px wide
+570 - 715
+- Centered text
+- 4 Columns
+- 128 px wide
+715 - 855
+- Left text
+- 5 Columns
+- 128 px wide
+855 +
+- Left text
+- 6 Columns
+- 128 px wide
